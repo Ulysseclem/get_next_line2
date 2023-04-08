@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uclement <uclement@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ulysse <ulysse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 10:38:59 by uclement          #+#    #+#             */
-/*   Updated: 2023/04/07 14:45:28 by uclement         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:11:27 by ulysse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,9 @@ char	*get_next_line(int fd)
 	free_stock(&stock);
 	if (line[0] == '\0')
 	{
-		free (line);
 		free (stock);
+		stock = NULL;
+		free (line);
 		return (NULL);
 	}
 	return (line);
@@ -122,5 +123,6 @@ char	*get_next_line(int fd)
 // 		free(line);
 // 		i++;
 // 	}
+// 	close(fd);
 // 	return(0);
 // }
